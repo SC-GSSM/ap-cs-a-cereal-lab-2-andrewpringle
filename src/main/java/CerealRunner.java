@@ -140,11 +140,12 @@ public class CerealRunner
       System.out.println("Actual results:   " + findNetCarbsPerCup(testCereal));
       
    }
-}
 
-/*
+   /*
 Question 4:
 Net carbs per cup is found by subtracting fiber from carbohydrates and dividing by cups.
 Fiber is not digested, so net carbs represent the usable carbohydrates.
 Using per cup allows fair comparison between cereals with different serving sizes.
 */
+}
+
