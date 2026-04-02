@@ -21,18 +21,19 @@ public class CerealRunner
    * @param: max - the maximum integer value of the range
    * Precondition: min < max
    */
-   public static  ArrayList<Cereal> filterCarbsPerCup(int min, int max)
+   public static ArrayList<Cereal> filterCarbsPerCup(int min, int max)
+{
+   ArrayList<Cereal> result = new ArrayList<Cereal>();
+   for (Cereal c : cereals)
    {
-      //Add your solution to Question 1 here.
-      ArrayList<Cereal> result = new ArrayList<Cereal>();
-      for (Cereal c : cereals){
-         double carbsPerCup = c.getCarbs() / c.getCups();
-         if (carbsPerCup() >= min && carbsPerCup() <= max){
-            result.add(c);
-         }
+      double carbsPerCup = c.getCarbs() / c.getCups();
+      if (carbsPerCup >= min && carbsPerCup <= max)
+      {
+         result.add(c);
       }
-      return result;
    }
+   return result;
+}
    
    
    /* Question 2: Write highestPercentFiber
@@ -41,19 +42,20 @@ public class CerealRunner
    * Precondition: cereals.size() > 0
    */
     
-   public static Cereal highestPercentFiber()
+  public static Cereal highestPercentFiber()
+{
+   Cereal best = cereals.get(0);
+   for (Cereal c : cereals)
    {
-      //Add your solution to Question 2 here.
-      Cereal highestFiber = cereals.get(0);
-      for (Cereal c : cereals){
-         double current = c.getFiber() / c.getCalories();
-         double best = highestFiber.getFiber() / highestFiber.getCalories();
-         if (current > best){
-            highestFiber = c;
-         }
+      double current = c.getFiber() / c.getCalories();
+      double highest = best.getFiber() / best.getCalories();
+      if (current > highest)
+      {
+         best = c;
       }
-      return highestFiber;
    }
+   return best;
+}
   
    
    /* Questino 3: Write findNetCarbs
@@ -63,19 +65,11 @@ public class CerealRunner
    */
     
    public static double findNetCarbsPerCup(Cereal c)
-   {
-      //Add your solution to Question 3 here.
-      double diff = (c.getCarbs() - c.getFiber()) / c.getCups();
-      return diff;
-   }
+{
+   return (c.getCarbs() - c.getFiber()) / c.getCups();
+}
   
-   /*
-Question 4:
-Net carbs per cup is calculated by subtracting fiber from total carbohydrates
-and dividing by the number of cups. This is useful because fiber is not digested
-by the body, so net carbs represent the actual carbohydrates that affect blood sugar.
-Using per cup allows fair comparison between cereals with different serving sizes.
-*/
+
 
    /*****************************************************************
     * The code below does not need to be edited.
@@ -147,3 +141,10 @@ Using per cup allows fair comparison between cereals with different serving size
       
    }
 }
+
+/*
+Question 4:
+Net carbs per cup is found by subtracting fiber from carbohydrates and dividing by cups.
+Fiber is not digested, so net carbs represent the usable carbohydrates.
+Using per cup allows fair comparison between cereals with different serving sizes.
+*/
