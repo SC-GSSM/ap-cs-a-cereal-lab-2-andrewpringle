@@ -139,12 +139,16 @@ public class CerealRunner
       System.out.println("Expected results: 11.0");
       System.out.println("Actual results:   " + findNetCarbsPerCup(testCereal));
       
+      for(Cereal c: cereals) { 
+      if(c.getName().equals("All-Bran with Extra Fiber") ||   
+         c.getName().equals("Apple Jacks") ||  
+         c.getName().equals("Cocoa Puffs")) 
+      { 
+         System.out.println("\nCereal: " + c.getName() 
+                              + ", NetCarbs: " + findNetCarbsPerCup(c)); 
+      } 
+}
    }
 
-/* Question 4 Answer:
-Net carbs per cup is found by subtracting fiber from carbohydrates and dividing by cups.
-Fiber is not digested, so net carbs represent the usable carbohydrates.
-Using per cup allows fair comparison between cereals with different serving sizes.
-*/
 }
 
