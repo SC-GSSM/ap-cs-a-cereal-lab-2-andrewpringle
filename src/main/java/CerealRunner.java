@@ -26,7 +26,8 @@ public class CerealRunner
       //Add your solution to Question 1 here.
       ArrayList<Cereal> result = new ArrayList<Cereal>();
       for (Cereal c : cereals){
-         if (c.getCarbs() >= min && c.getCarbs() <= max){
+         double carbsPerCup = c.getCarbs() / c.getCups();
+         if (carbsPerCup() >= min && carbsPerCup() <= max){
             result.add(c);
          }
       }
@@ -68,6 +69,13 @@ public class CerealRunner
       return diff;
    }
   
+   /*
+Question 4:
+Net carbs per cup is calculated by subtracting fiber from total carbohydrates
+and dividing by the number of cups. This is useful because fiber is not digested
+by the body, so net carbs represent the actual carbohydrates that affect blood sugar.
+Using per cup allows fair comparison between cereals with different serving sizes.
+*/
 
    /*****************************************************************
     * The code below does not need to be edited.
@@ -139,10 +147,3 @@ public class CerealRunner
       
    }
 }
-
-/*
-Question 4:
-Net carbs per cup is useful because it shows how many digestible carbohydrates
-you actually consume in a standard serving size. By subtracting fiber (which
-is not digested) and adjusting for cups, it gives a comparison between cereals.
-*/
