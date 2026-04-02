@@ -147,8 +147,18 @@ public class CerealRunner
          System.out.println("\nCereal: " + c.getName() 
                               + ", NetCarbs: " + findNetCarbsPerCup(c)); 
       } 
-}
+      }
    }
+   /* Question 4 Answer:
+After calculating net carbs for the cereals:
+
+- All-Bran with Extra Fiber has a very low net carb value.
+- Apple Jacks and Cocoa Puffs have much higher net carbs.
+
+The value for All-Bran with Extra Fiber seems out of place because it is significantly lower than typical cereals.
+This suggests the data set includes cereals with extremely high fiber content relative to carbs.
+It may indicate that the data set is a mix of high-fiber and sugary cereals, so careful validation is needed before analysis.
+*/
 
 }
 
