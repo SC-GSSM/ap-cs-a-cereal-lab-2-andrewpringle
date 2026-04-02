@@ -26,7 +26,7 @@ public class CerealRunner
       //Add your solution to Question 1 here.
       ArrayList<Cereal> result = new ArrayList<Cereal>();
       for (Cereal c : cereals){
-         if (c.getFiber() >= min && c.getFiber() <= max){
+         if (c.getCarbs() >= min && c.getCarbs() <= max){
             result.add(c);
          }
       }
@@ -45,8 +45,8 @@ public class CerealRunner
       //Add your solution to Question 2 here.
       Cereal highestFiber = cereals.get(0);
       for (Cereal c : cereals){
-         int current = c.getFiber() / c.getCalories();
-         int best = highestFiber.getFiber() / highestFiber.getCalories();
+         double current = c.getFiber() / c.getCalories();
+         double best = highestFiber.getFiber() / highestFiber.getCalories();
          if (current > best){
             highestFiber = c;
          }
@@ -64,7 +64,7 @@ public class CerealRunner
    public static double findNetCarbsPerCup(Cereal c)
    {
       //Add your solution to Question 3 here.
-      double diff = c.getCarbs() - c.getFiber();
+      double diff = (c.getCarbs() - c.getFiber()) / c.getCups();
       return diff;
    }
   
@@ -140,3 +140,9 @@ public class CerealRunner
    }
 }
 
+/*
+Question 4:
+Net carbs per cup is useful because it shows how many digestible carbohydrates
+you actually consume in a standard serving size. By subtracting fiber (which
+is not digested) and adjusting for cups, it gives a comparison between cereals.
+*/
